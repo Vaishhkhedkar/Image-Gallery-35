@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="flower1.jpg" class="img" id="img">
+
+    <div class="btn-container">
+        <button type="button" class="btn">
+            <img src="prev-btn.png" class="img-btn" onclick="previous()">
+        </button>
+        <button type="button" class="btn">
+            <img src="next-btn.png"   class="img-btn" onclick="next()">
+        </button>
+    </div>
+
+    <script>
+        const img = [
+            "flower1.jpg",
+            "flower2.jpg",
+            "flower3.jpg",
+            "flower4.jpg",
+            "flower5.jpg"
+        ];
+
+        let imgIndex = 0;
+
+        function previous() {
+            if (imgIndex == 0) {
+                imgIndex = img.length - 1;
+            }
+            else {
+                imgIndex--;
+            }
+
+            const image = document.getElementById('img');
+            image.src = img[imgIndex];
+
+        }
+
+        function next() {
+            if (imgIndex == img.length - 1) {
+                imgIndex = 0;
+            }
+            else {
+                imgIndex++;
+            }
+
+            const image = document.getElementById('img');
+            image.src = img[imgIndex];
+        }
+
+        setInterval(next, 2000);
+    </script>
+</body>
+
+</html>
